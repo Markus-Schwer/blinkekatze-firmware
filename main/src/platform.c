@@ -5,6 +5,7 @@
 #include <esp_log.h>
 
 #include "platform_blinkekatze.h"
+#include "platform_lacklight.h"
 
 static const char *TAG = "platform";
 
@@ -15,6 +16,11 @@ void platform_init(platform_t *plat, const platform_ops_t *ops) {
 
 esp_err_t platform_probe(platform_t **platform) {
 	esp_err_t err = platform_blinkekatze_probe(platform);
+	if (!err && *platform) {
+		return 0;
+	}
+
+	err = platform_lacklight_probe(platform);
 	if (!err && *platform) {
 		return 0;
 	}

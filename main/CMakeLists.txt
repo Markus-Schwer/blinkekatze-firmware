@@ -21,6 +21,7 @@ set(srcs
 	src/node_info.c
 	src/ota.c
 	src/platform_blinkekatze.c
+	src/platform_lacklight.c
 	src/platform.c
 	src/power_control.c
 	src/rainbow_fade.c
